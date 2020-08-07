@@ -175,3 +175,21 @@ body {
 	color: #fff;
 	background-color: #fd9644;
 }
+
+.filter a {
+	display: block;
+	color: #95afc0;
+	border: 1px solid #95afc0;
+	padding: 10px 18px;
+}
+
+.filter li {
+	display: inline-block;
+	padding: 5px;
+}
+
+.filter .current {
+	background-color: #fa8231;
+	border-color: #fa8231;
+	color: #fff;
+}
