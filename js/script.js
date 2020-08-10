@@ -2,6 +2,15 @@ $(window).on('load', () => {
   $('.loader .inner').fadeOut(500, () => {
     $('.loader').fadeOut(750);
   });
+
+  $('.items').isotope({
+    filter: '*',
+    animationOptions: {
+      duration: 1500,
+      easing: 'linear',
+      queue: false,
+    },
+  });
 });
 
 $(document).ready(function () {
@@ -73,15 +82,6 @@ $(document).ready(function () {
 
   $('[data-fancybox]').fancybox();
 
-  $('.items').isotope({
-    filter: '*',
-    animationOptions: {
-      duration: 1500,
-      easing: 'linear',
-      queue: false,
-    },
-  });
-
   $('#filters a').click(function () {
     $('#filters .current').removeClass('current');
     $(this).addClass('current');
@@ -101,8 +101,8 @@ $(document).ready(function () {
   $('#navigation li a').click(function (e) {
     e.preventDefault();
 
-    const targetElement = $(this).attr('href');
-    const targetPosition = $(targetElement).offset().top;
+    let targetElement = $(this).attr('href');
+    let targetPosition = $(targetElement).offset().top;
     $('html, body').animate({ scrollTop: targetPosition - 50 }, 'slow');
   });
 
