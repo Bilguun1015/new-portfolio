@@ -80,7 +80,11 @@ $(document).ready(function () {
     }
   });
 
-  $('[data-fancybox]').fancybox();
+  $('[data-fancybox]').fancybox({
+    caption: function (instance, item) {
+      return $(this).find('figcaption').html();
+    },
+  });
 
   $('#filters a').click(function () {
     $('#filters .current').removeClass('current');
@@ -99,6 +103,14 @@ $(document).ready(function () {
   });
 
   $('#navigation li a').click(function (e) {
+    e.preventDefault();
+
+    let targetElement = $(this).attr('href');
+    let targetPosition = $(targetElement).offset().top;
+    $('html, body').animate({ scrollTop: targetPosition - 50 }, 'slow');
+  });
+
+  $('.scrollDown').click(function (e) {
     e.preventDefault();
 
     let targetElement = $(this).attr('href');
